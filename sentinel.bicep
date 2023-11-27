@@ -8,6 +8,9 @@ param location string = 'norwayeast'
 @maxLength(37)
 param projectName string
 
+@description('Specifies the Tenant ID for Azure Active Directory.')
+param tenantId string 
+
 @description('Generated the workspace name.')
 var workspaceName = 'law-${projectName}'
 
@@ -66,7 +69,7 @@ resource azureADDataConnector 'Microsoft.SecurityInsights/dataConnectors@2023-09
         state: 'Enabled'
       }
     }
-    tenantId: 'b8a2c36b-eba9-4dfa-b151-15c03efaa2be'
+    tenantId: tenantId
   }
 }
 
